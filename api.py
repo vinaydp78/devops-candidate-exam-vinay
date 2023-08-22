@@ -1,6 +1,6 @@
 import json
 #import requests
-import urllib.request
+import http.client
 
 def lambda_handler(event, context):
     url = "https://ij92qpvpma.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data"
@@ -10,9 +10,22 @@ def lambda_handler(event, context):
     "name": "vinay patange",
     "email": "vinaydp78@gmail.com"
     } # replace with your request parameters
-    response = urllib.request.post(url, headers=headers, data=json.dumps(payload))
+    
+    #response = urllib.request.post(url, headers=headers, data=json.dumps(payload))
+   # return {
+    #    "statusCode": response.status_code,
+    #    "body": response.json()
+    #}
+    
+    conn = http.client.HTTPSConnection("https://ij92qpvpma.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data")
+    conn.request("POST", "/endpoint", body=payload, headers=headers)
+    
+    response = conn.getresponse()
+    response_data = response.read().decode("utf-8")
+    
+    # Return the response data
     return {
-        "statusCode": response.status_code,
+        "statusCode": response.status,
         "body": response.json()
     }
     
