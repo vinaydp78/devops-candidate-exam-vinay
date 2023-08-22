@@ -10,7 +10,6 @@ def lambda_handler(event, context):
     "name": "vinay patange",
     "email": "vinaydp78@gmail.com"
     } # replace with your request parameters
-    http = urllib3.PoolManager()
     response = urllib.request.post(url, headers=headers, data=json.dumps(payload))
     return {
         "statusCode": response.status_code,
