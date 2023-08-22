@@ -1,10 +1,11 @@
 pipeline{
     agent any
-    stages{
-        options {
+    options {
         // Delete workspace before build starts
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
+    stages{
+       
         stage("TF Init"){
             steps{
                 echo "Executing Terraform Init"
