@@ -1,5 +1,6 @@
 import json
-import requests
+#import requests
+import urllib3
 
 def lambda_handler(event, context):
     url = "https://ij92qpvpma.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data"
@@ -9,8 +10,10 @@ def lambda_handler(event, context):
     "name": "vinay patange",
     "email": "vinaydp78@gmail.com"
     } # replace with your request parameters
-    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    http = urllib3.PoolManager()
+    response = http.request.post(url, headers=headers, data=json.dumps(payload))
     return {
         "statusCode": response.status_code,
         "body": response.json()
     }
+    
