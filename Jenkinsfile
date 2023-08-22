@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("TF Init"){
             steps{
-               # echo "Executing Terraform Init"
+                echo "Executing Terraform Init"
                 sh 'terraform init -force-copy'
             }
         }
