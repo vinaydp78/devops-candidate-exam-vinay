@@ -11,9 +11,9 @@ terraform {
 }
 
 # Create private subnet
-resource "aws_subnet" "private_subnet" {
+resource "aws_subnet" "private_subnet1" {
   vpc_id            = "vpc-00bf0d10a6a41600c"
-  cidr_block        = "10.0.200.0/24"
+  cidr_block        = "10.0.201.0/24"
   #availability_zone = "eu-west-1" # replace with the AZ you want to use
 }
 
