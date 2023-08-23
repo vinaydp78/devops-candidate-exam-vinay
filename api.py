@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     "email": "vinaydp78@gmail.com"
     } # replace with your request parameters
     
-    response = urllib.request.post(url, headers=headers, data=json.dumps(payload))
+    response = urllib.request.Request(url, headers=headers, data=json.dumps(payload))
     return {
         "statusCode": response.status_code,
         "body": response.json()
