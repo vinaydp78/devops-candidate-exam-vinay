@@ -35,7 +35,7 @@ resource "aws_route_table" "private_route_table" {
 }
 
 # Create Lambda function
-resource "aws_lambda_function" "my_lambda_function2" {
+resource "aws_lambda_function" "lambda_function" {
   function_name = "my-lambda-function3"
   handler = "api.lambda_handler"
   runtime = "python3.7"
