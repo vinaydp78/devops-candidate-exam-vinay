@@ -36,7 +36,7 @@ resource "aws_route_table" "private_route_table" {
 
 # Create Lambda function
 resource "aws_lambda_function" "lambda_function" {
-  function_name = "my-lambda-function_vinay12"
+  function_name = "my-lambda-function_vinay123"
   handler = "api.lambda_handler"
   runtime = "python3.7"
   role = data.aws_iam_role.lambda.arn

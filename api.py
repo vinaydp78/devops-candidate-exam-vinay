@@ -1,6 +1,6 @@
 import json
 #import requests
-import urllib.request
+import requests
 
 def lambda_handler(event, context):
     url = "https://ij92qpvpma.execute-api.eu-west-1.amazonaws.com/candidate-email_serverless_lambda_stage/data"
@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     "email": "vinaydp78@gmail.com"
     } # replace with your request parameters
     
-    response = urllib.request.Request(url, headers=headers, data=json.dumps(payload))
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
     return {
         "statusCode": response.status_code,
         "body": response.json()
